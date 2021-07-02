@@ -1,13 +1,21 @@
-vbn
-<div class="row" >
-    <div class="card col-sm-4 p-4">
-        <div class="shadow-lg">
-            <img class="propImage" src="assets/images/House_Default.png"/>
+
+
+        <div class="card">
+         <div class="card-image-wrapper">
+            <img class="card-img-top" src="assets/images/House_Default.png"/>
+            <ul class="list-inline text-center memer-Icons animate">
+                <li class="list-inline-item ">
+                        <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                </li>
+                <li class="list-inline-item">
+                        <button class="btn btn-primary"><i class="far fa-address-book"></i></button>
+                </li>
+            </ul>
+        </div>
             <div class="card-body p-1">
-                    <h1 >{{Property.Name}}</h1>
+                    <h1 >{{Property.Name}}</h1> 
                     <h2 >{{Property.Type}}</h2>
                     <h3 >{{Property.Price}}</h3>
+                    
             </div>
     </div>
-    </div>
-</div>
