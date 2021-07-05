@@ -9,10 +9,14 @@ import{PropertyCardComponent}from './property/property-card/propety-card.compone
 import { PropertyListComponent } from './property/property-list/property-list.component'
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import {HousingService} from '../app/services/housing.service'
+import{UserServiceService} from './services/user-service.service'
+
 import {AddPropertyComponent} from './property/add-property/add-property.component'
 import {PropertyDetailsComponent} from './property/property-details/property-details.component'
 import {UserRegisterComponent} from './user/user-register/user-register.component'
 import {UserLoginComponent} from './user/user-login/user-login.component'
+import{AlertifyServiceService} from './services/alertify-service.service'
+
 const appRoutes:Routes=[
   {path:'',component:PropertyListComponent},
   {path:'rent-property',component:PropertyListComponent},
@@ -42,7 +46,7 @@ const appRoutes:Routes=[
    FormsModule,
    ReactiveFormsModule
   ],
-  providers: [HousingService],
+  providers: [HousingService,UserServiceService,AlertifyServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
