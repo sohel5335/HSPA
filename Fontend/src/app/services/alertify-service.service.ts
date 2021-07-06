@@ -6,17 +6,17 @@ import * as alertify from 'alertifyjs'
 export class AlertifyServiceService {
 
 constructor() { }
-success(){
-  alertify.success('Congrates you are Successfylly registered');
+success(success?:string){
+  alertify.success(success);
 }
-error(){
-  alertify.error('Kindly Provide required field');
+error(ms?:string){
+  alertify.error(ms+"");
 }
-warning(){
-  alertify.warning('Warning message');
+warning(mas?:string){
+  alertify.warning(mas);
 }
-message(){
-  alertify.message('Normal message');
+message(mas?:string){
+  alertify.message(mas);
 }
 
 
