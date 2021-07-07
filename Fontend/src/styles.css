@@ -8,3 +8,8 @@
 .error-block{
     color:red;
 }
+.btn-group >label[ng-reflect-btn-radio]{
+    border-radius: 44px;
+    padding: 0 15;
+    line-height: 25px;
+}

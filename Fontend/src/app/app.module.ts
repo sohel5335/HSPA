@@ -6,6 +6,9 @@ import {ROUTES,RouterModule, Routes, Router} from '@angular/router'
 import{FormsModule,ReactiveFormsModule} from '@angular/forms'
 import{BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {BsDropdownModule} from 'ngx-bootstrap/dropdown'
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+
 import { AppComponent } from './app.component'
 import{PropertyCardComponent}from './property/property-card/propety-card.component';
 import { PropertyListComponent } from './property/property-list/property-list.component'
@@ -19,6 +22,7 @@ import {UserRegisterComponent} from './user/user-register/user-register.componen
 import {UserLoginComponent} from './user/user-login/user-login.component'
 import{AlertifyServiceService} from './services/alertify-service.service'
 import {AuthService} from './services/auth.service'
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { from } from 'rxjs';
 
 const appRoutes:Routes=[
@@ -50,7 +54,10 @@ const appRoutes:Routes=[
    FormsModule,
    ReactiveFormsModule,
    BrowserAnimationsModule,
-   BsDropdownModule.forRoot()
+   BsDropdownModule.forRoot(),
+   TooltipModule.forRoot(),
+   TabsModule.forRoot(),
+   ButtonsModule.forRoot()
   ],
   providers: [
     HousingService,

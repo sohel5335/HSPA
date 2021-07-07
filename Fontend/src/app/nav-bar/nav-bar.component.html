@@ -28,21 +28,20 @@
             <li class="nav-item"  *ngIf="!logIn()">
               <a class="nav-link"  routerLinkActive="active" routerLink="/user-login">Login</a>
             </li>
-            <!-- <li class="nav-item"  *ngIf="logIn()">
-              <a class="nav-link"  (click)="onLogOut()">LogOut</a>
-            </li> -->
-            <!-- <div *ngIf="logIn()" dropdown  class="dropdown">
-              <a href="#"  dropdownToggle (click)="false" class="dropdown-toggle text-light">
-                  Welcome
+            
+            <div *ngIf="logIn()" dropdown class="dropdown me-5">
+              <a href="#" dropdownToggle class="dropdown-toggle text-light" (click)="false" >
+                 welcome{{" "+loggedUserName}}
               </a>
-              <ul id="basic-link-dropdown" *dropdownMenu class="dropdown-menu"
-                  role="menu" aria-labelledby="basic-link">
-                <li *ngFor="let choice of items">
-                  <a class="dropdown-item" href="#">{{choice}}</a> 
-                </li>
-              </ul>
-            </div> -->
+              <div  *dropdownMenu class="dropdown-menu" >
+                  <a class="dropdown-item" href="#"><i class="fas fa-tachometer-alt"></i>View Dashbord</a>
+                  <a class="dropdown-item" href="#"><i class="far fa-user-circle"></i>MyProfile</a>
+                  <a class="dropdown-item" href="#"><i class="fas fa-key"></i>Change Password</a>
+                  <a class="dropdown-item" href="#"  (click)="onLogOut()" ><i class="fas fa-signout-alt"></i>Logout</a>
+              </div>
+            </div>
           </ul>
+          
      </div>
      
     </div>
