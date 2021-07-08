@@ -11,13 +11,38 @@
             <div class="form-group col-12">
               <p>I want to</p>
               <div class="btn-group" btnRadioGroup>
-                <label class="btn btn-outline-primary me-2" btnRadio=1 role="button" name="sellRent">sell</label>
-                <label class="btn btn-outline-primary" btnRadio=2 role="button" name="sellRent">Rent</label>
+                <label class="btn btn-outline-primary me-2" btnRadio=1 tabindex="0" role="button" name="sellRent">sell</label>
+                <label class="btn btn-outline-primary" btnRadio=2 tabindex="0" role="button" name="sellRent">Rent</label>
+              </div>
+            </div>
+            <div class="form-group col-12">
+              <p>BHK</p>
+              <div class="btn-group" btnRadioGroup>
+                <label *ngFor="let bhk of ['1','2','3','4']"
+                class="btn btn-outline-primary me-2" [btnRadio]="bhk" tabindex="0" role="button" name="sellRent">{{bhk}}</label>
+               
+              </div>
+            </div>
+            <div class="form-group col-12">
+              <p>Property Type</p>
+              <div class="btn-group" btnRadioGroup>
+                <label *ngFor="let pType of propertyTypes"
+                class="btn btn-outline-primary me-2" [btnRadio]="pType" tabindex="0" role="button" name="sellRent">{{pType}}</label>
+               
+              </div>
+            </div>
+
+            <div class="form-group col-12">
+              <p>Furnish Type</p>
+              <div class="btn-group" btnRadioGroup>
+                <label *ngFor="let fType of furnishTypes"
+                class="btn btn-outline-primary me-2" [btnRadio]="fType" tabindex="0" role="button" name="sellRent">{{fType}}</label>
+               
               </div>
             </div>
 
               <div class="form-group col-12">
-                <label>Name</label>
+                <label>in Building/Society/Project</label>
                 <input type="text" class="form-control"
                 #propName="ngModel"
                 ngModel name="Name"
@@ -29,17 +54,14 @@
                 </span>
               </div>
 
-              <div class="form-group col-12">
-                <label>Type</label>
-                <input type="text" class="form-control" ngModel name="Type">
-              </div>
+
 
               <div class="form-group col-12">
-                <label>Price</label>
-                <input type="text" class="form-control" ngModel name="Price">
+                <label>City</label>
+                <input type="text" class="form-control" >
               </div>
 
-              <div class="form-group d-grid gap-2">
+              <div class="form-group d-grid gap-2 mt-2">
                   <button type="button" class="btn btn-primary btn-block"
                   (click)="selectTab(1)">Next</button>
               </div>
@@ -113,17 +135,20 @@
 
           <tab heading="Other Details">
             <div class="form-group col-12">
-              <label>Ready to Move</label><br/>
-              <input type="radio" id='Yes' value='1' name="RTM">
-              <label class="m-2">Yes</label>
-
-              <input type="radio" id="No" value='2' name="RTM">
-              <label class="m-2">No</label>
+              <p>Ready To Move</p>
+              <div class="btn-group" btnRadioGroup>
+                <label *ngFor="let gCommunity of gatedCommunity"
+                class="btn btn-outline-primary me-2" [btnRadio]="gCommunity" tabindex="0" role="button" name="sellRent">{{gCommunity}}</label>
+               
+              </div>
             </div>
 
             <div class="form-group col-3">
               <label>Possession/Avaialble From</label>
-              <input type="date" class="form-control">
+              <input type="text"
+              placeholder="Datepicker"
+              class="form-control"
+              bsDatepicker [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: 'theme-dark-blue' }">
             </div>
 
             <div class="form-group col-12">
@@ -131,14 +156,23 @@
               <input type="text" class="form-control">
             </div>
 
+
             <div class="form-group col-12">
-              <label>Gated Community</label>
-              <input type="text" class="form-control">
+              <p>Gated Community</p>
+              <div class="btn-group" btnRadioGroup>
+                <label *ngFor="let gCommunity of gatedCommunity"
+                class="btn btn-outline-primary me-2" [btnRadio]="gCommunity" tabindex="0" role="button" name="sellRent">{{gCommunity}}</label>
+               
+              </div>
             </div>
 
             <div class="form-group col-12">
-              <label>Main Entrance</label>
-              <input type="text" class="form-control">
+              <p>Ready To Move</p>
+              <div class="btn-group" btnRadioGroup>
+                <label *ngFor="let rTomove of readyToMove"
+                class="btn btn-outline-primary me-2" [btnRadio]="rTomove" tabindex="0" role="button" name="sellRent">{{rTomove}}</label>
+               
+              </div>
             </div>
 
             <div class="form-group col-12">

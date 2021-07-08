@@ -5,6 +5,7 @@ import{HttpClientModule} from '@angular/common/http'
 import {ROUTES,RouterModule, Routes, Router} from '@angular/router'
 import{FormsModule,ReactiveFormsModule} from '@angular/forms'
 import{BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import {BsDropdownModule} from 'ngx-bootstrap/dropdown'
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { TabsModule } from 'ngx-bootstrap/tabs';
@@ -57,7 +58,8 @@ const appRoutes:Routes=[
    BsDropdownModule.forRoot(),
    TooltipModule.forRoot(),
    TabsModule.forRoot(),
-   ButtonsModule.forRoot()
+   ButtonsModule.forRoot(),
+   BsDatepickerModule.forRoot()
   ],
   providers: [
     HousingService,
