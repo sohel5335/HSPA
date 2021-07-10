@@ -10,5 +10,5 @@ export interface IPropertyBase
     RTM:number;
     Image?:string;
     SellRent:number;
-    BuiltArea:number;
+    BuildArea:number;
 } 

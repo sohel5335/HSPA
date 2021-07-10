@@ -20,22 +20,20 @@ export class PropertyListComponent implements OnInit {
   constructor(private housingService:HousingService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    debugger;
     if(this.route.snapshot.url.toString()){
       this.sellRent=2;
 
     }
     this.housingService.getAllProperties( this.sellRent).subscribe(data=>
-       { this.Properties=data
-         console.log(data)
+       { 
+         this.Properties=data;
        },
          err=>{
           console.log(err)
          }
         );
-    // this.http.get('data/Properties.json').subscribe(data=>
-    //  { this.Properties=data
-    //    console.log(data)}
-    //   );
+   
   }
 
 }
