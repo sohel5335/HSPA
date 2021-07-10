@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormControlName, FormGroup, NgForm, Validators } from '@angular/forms';
 import {Router} from '@angular/router'
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { IPropertyBase } from 'src/app/model/IPropertyBase';
@@ -27,7 +27,10 @@ export class AddPropertyComponent implements OnInit {
       Name: [null, [Validators.required, Validators.minLength(5)]],
       FType: [null, Validators.required],
       City: [null]
-    })
+    }),
+    PriceInfo:this.fb.group({
+      Price:[null,Validators.required]
+    }),
 
     });
 
@@ -40,7 +43,7 @@ export class AddPropertyComponent implements OnInit {
       this.propertyView.Name=  this.BasicInfo.get('Name')?.value;
       this.propertyView.FType=  this.BasicInfo.get('FType')?.value;
       this.propertyView.PType=  this.BasicInfo.get('PType')?.value;
-
+      this.propertyView.Price=this.PriceInfo.get('Price')?.value;
   })
     
   }
@@ -67,9 +70,29 @@ export class AddPropertyComponent implements OnInit {
   get BasicInfo() {
     return this.addPropertyForm.controls.BasicInfo as FormGroup;
   }
+get PriceInfo(){
+  return this.addPropertyForm.controls.PriceInfo as FormGroup;
+}
+//controll name get
+
+  get SellRent(){
+    return this.BasicInfo.controls.SellRent as FormControl
+  }
+get Price(){
+  return this.PriceInfo.controls.Price as FormControl
+}
+
   onSubmit(){
-    console.log('done');
-  
+    this.isNexttab=true;
+    if(this.BasicInfo.invalid){
+        this.formsTab.tabs[0].active = true;
+        return;
+    }
+    if(this.Price.invalid){
+      this.formsTab.tabs[1].active = true;
+      return;
+  }
+
   }
    isNexttab:boolean=false;
   selectTab(tabId: number,isCurrentabValid:boolean) {

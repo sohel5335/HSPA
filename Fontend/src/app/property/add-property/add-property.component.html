@@ -15,7 +15,11 @@
                   <div class="btn-group" btnRadioGroup formControlName="SellRent">
                     <label class="btn btn-outline-primary me-2" btnRadio=1 tabindex="0" role="button" name="sellRent">sell</label>
                     <label class="btn btn-outline-primary" btnRadio=2 tabindex="0" role="button" name="sellRent">Rent</label>
+                   
                   </div>
+                  <div class="error-block" *ngIf="SellRent.invalid && isNexttab">
+                    please Select sellRent
+              </div>
                 </div>
                 <div class="form-group col-12">
                   <p>BHK</p>
@@ -46,10 +50,11 @@
                   <div class="form-group col-12">
                     <label>in Building/Society/Project</label>
                      <input type="text" class="form-control"  formControlName="Name"  >
-                     <span  class="error-block" *ngIf="(!BasicInfo.valid && isNexttab) || BasicInfo.touched">
-                         please provie Name
-                     </span>
+                   
                   </div>
+                  <span  class="error-block" *ngIf="!BasicInfo.valid && (isNexttab || BasicInfo.touched)">
+                    please provie Name
+                </span>
 
                   <div class="form-group col-12">
                     <label>City</label>
@@ -62,10 +67,16 @@
                   </div>
               </tab>
 
-              <tab heading="Pricing and Area">
+              <tab heading="Pricing and Area" formGroupName="PriceInfo">
                   <div class="form-group col-12">
-                    <label>Price (in USD)</label>
-                    <input type="text" class="form-control"  >
+                    <label  *ngIf="SellRent.value==1">Price (in USD)</label>
+                    <label  *ngIf="SellRent.value==2">Rent (in USD)</label>
+                    <input type="text" class="form-control" formControlName="Price" >
+                  </div>
+                  <div class="error-block" *ngIf="Price.invalid  && (isNexttab || Price.touched)">
+                      please enter 
+                      <span *ngIf="SellRent.value==1">Price</span> 
+                      <span *ngIf="SellRent.value==2">Rent</span> 
                   </div>
 
                   <div class="form-group col-12">
@@ -88,12 +99,12 @@
                     <input type="text" class="form-control">
                   </div>
 
-                  <div class="form-group d-grid gap-2">
+                  <div class="form-group d-grid gap-2 mt-2">
                     <button type="button" class="btn btn-primary btn-block"
-                    (click)="selectTab(2,false)">Next</button>
+                    (click)="selectTab(2,PriceInfo.valid)">Next</button>
 
                     <button type="button" class="btn btn-primary btn-block"
-                    (click)="selectTab(0,false)">Back</button>
+                    (click)="selectTab(0,true)">Back</button>
                   </div>
               </tab>
 
@@ -191,8 +202,10 @@
                       This is under construction
                   </div>
                 </div>
-                <div class="form-group d-grid gap-2">
+                <div class="form-group d-grid gap-2 mt-2">
                   <button type="button" class="btn btn-primary " (click)="selectTab(3,false)">Back</button>
+                  <button type="submit" class="btn btn-primary ">Save</button>
+                  <button type="button" class="btn btn-primary ">Cancel</button>
                 </div>
               </tab>
             </tabset>
