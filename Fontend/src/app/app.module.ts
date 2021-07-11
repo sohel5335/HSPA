@@ -9,6 +9,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import {BsDropdownModule} from 'ngx-bootstrap/dropdown'
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 import { AppComponent } from './app.component'
 import{PropertyCardComponent}from './property/property-card/propety-card.component';
@@ -24,13 +25,14 @@ import {UserLoginComponent} from './user/user-login/user-login.component'
 import{AlertifyServiceService} from './services/alertify-service.service'
 import {AuthService} from './services/auth.service'
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import{PropertyDetailsResolverService} from './services/property-details-resolver.service'
 import { from } from 'rxjs';
 
 const appRoutes:Routes=[
   {path:'',component:PropertyListComponent},
   {path:'rent-property',component:PropertyListComponent},
   { path:'add-property',  component:AddPropertyComponent},
-  { path:'property-details/:id',  component:PropertyDetailsComponent},
+  { path:'property-details/:id',  component:PropertyDetailsComponent,resolve:{prp:PropertyDetailsResolverService}},
   { path:'user-register',  component:UserRegisterComponent},
   { path:'user-login',  component:UserLoginComponent},
   {path:'**',component:PropertyListComponent},
@@ -59,13 +61,15 @@ const appRoutes:Routes=[
    TooltipModule.forRoot(),
    TabsModule.forRoot(),
    ButtonsModule.forRoot(),
-   BsDatepickerModule.forRoot()
+   BsDatepickerModule.forRoot(),
+   NgxGalleryModule 
   ],
   providers: [
     HousingService,
     UserServiceService,
     AlertifyServiceService,
-    AuthService
+    AuthService,
+    PropertyDetailsResolverService
   ],
   bootstrap: [AppComponent]
 })
