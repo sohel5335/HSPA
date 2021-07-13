@@ -27,6 +27,8 @@ import {AuthService} from './services/auth.service'
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import{PropertyDetailsResolverService} from './services/property-details-resolver.service'
 import { from } from 'rxjs';
+import { FilterPipe } from './pipe/filter.pipe';
+import { SortPipe } from './pipe/sort.pipe';
 
 const appRoutes:Routes=[
   {path:'',component:PropertyListComponent},
@@ -47,7 +49,9 @@ const appRoutes:Routes=[
       AddPropertyComponent,
       PropertyDetailsComponent,
       UserRegisterComponent,
-      UserLoginComponent
+      UserLoginComponent,
+      FilterPipe,
+      SortPipe
       
    ],
   imports: [
