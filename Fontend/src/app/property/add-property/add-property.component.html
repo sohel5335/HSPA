@@ -58,7 +58,12 @@
 
                   <div class="form-group col-12">
                     <label>City</label>
-                    <input type="text" class="form-control"  formControlName="City" >
+                    <select  class="form-control" formControlName="City">
+                      <option value="">select city--</option>
+                        <option *ngFor="let city of Cities"
+                        value={{city}}>{{city}}</option>
+                    </select>
+                   
                   </div>
 
                   <div class="form-group d-grid gap-2 mt-2">

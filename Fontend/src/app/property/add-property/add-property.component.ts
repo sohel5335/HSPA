@@ -22,19 +22,21 @@ export class AddPropertyComponent implements OnInit {
   addPropertyForm!:FormGroup;
   property  = new Property();
   housingService: any;
+  Cities:string[]=[]
   constructor(private route:Router,private fb:FormBuilder,private alertify:AlertifyServiceService,private housingservice:HousingService) { }
 
   ngOnInit() {
-    debugger;
- 
- 
+
+    this.housingservice.getCities().subscribe(data=>{
+      this.Cities=data;
+    });
     this.addPropertyForm=this.fb.group({BasicInfo: this.fb.group({
       SellRent: ['1', Validators.required],
       PType: [null, Validators.required],
       BHK: [null, Validators.required],
       Name: [null, [Validators.required, Validators.minLength(5)]],
       FType: [null, Validators.required],
-      City: [null]
+      City: ['']
     }) ,
     PriceInfo: this.fb.group({
       Price: [null, Validators.required],

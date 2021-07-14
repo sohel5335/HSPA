@@ -12,10 +12,13 @@ import { error } from '@angular/compiler/src/util';
 export class HousingService {
 
   constructor(private http:HttpClient) { }
+getCities():Observable<string[]>{
+  return this.http.get<string[]>('http://localhost:5000/api/City')
+}
+
   getProperty (id:number):Observable<any>
   {
-    
- 
+
     return this.getAllProperties().pipe(map(propertyArry=>{
     
       // throw new Error("some error");
