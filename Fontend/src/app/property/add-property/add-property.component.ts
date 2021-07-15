@@ -22,12 +22,13 @@ export class AddPropertyComponent implements OnInit {
   addPropertyForm!:FormGroup;
   property  = new Property();
   housingService: any;
-  Cities:string[]=[]
+  Cities:any[]=[]
   constructor(private route:Router,private fb:FormBuilder,private alertify:AlertifyServiceService,private housingservice:HousingService) { }
 
   ngOnInit() {
 
     this.housingservice.getCities().subscribe(data=>{
+      debugger;
       this.Cities=data;
     });
     this.addPropertyForm=this.fb.group({BasicInfo: this.fb.group({
