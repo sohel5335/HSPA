@@ -12,6 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using WebAPI.Data;
+using WebAPI.Data.Repo;
+using WebAPI.InterFace;
 
 namespace WebAPI
 {
@@ -39,6 +41,7 @@ namespace WebAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
             });
+            services.AddScoped<IUnitOfWork,UnitOfWork>();
             
         }
 

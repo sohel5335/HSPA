@@ -14,6 +14,7 @@ export class SortPipe implements PipeTransform {
     {
       multiplier=-1;
     }
+    if(value!=null){
     value.sort((a,b)=>{
       if(a[sortField]<b[sortField])
       {
@@ -29,5 +30,5 @@ export class SortPipe implements PipeTransform {
     })  
     return value;
   }
-
+}
 }
