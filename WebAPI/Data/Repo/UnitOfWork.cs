@@ -14,10 +14,12 @@ namespace WebAPI.Data.Repo
         }
         public ICityRepository CityRepository => 
            new CityRepository(dc);
+      // get{return new CityRepository(dc);}} 
+           
 
         public async Task<bool> SaveAsync()
         {
-          return  await dc.SaveChangesAsync()>0;
+            return await dc.SaveChangesAsync()>0;
         }
     }
 }

@@ -10,6 +10,9 @@ namespace WebAPI.InterFace
          Task<IEnumerable<City>> getCities();
          void AddCity(City city);
          void DeleteCiyt(int cityId);
+         Task<City> FindCity(int id);
+
+
         
        
     }
