@@ -49,11 +49,15 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> UpdateCity(int id,CityDto cityDto)
         {
            var cityFromDb= await uow.CityRepository.FindCity(id);
+             
            if(cityFromDb==null)
                 return BadRequest("Id Not Match");
+
+           
            cityFromDb.LastUpdateBy=1;
            cityFromDb.LastUpdatedOn=DateTime.Now;
            mapper.Map(cityDto,cityFromDb);
+                throw  new Exception("some thing wrong");
            await uow.SaveAsync();
             return StatusCode(200);
 
